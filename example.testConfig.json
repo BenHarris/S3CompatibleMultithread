@@ -2,6 +2,6 @@
   "pwd": "/",
   "accessKey": "accessKey",
   "secretKey": "secretKey",
-  "bucketName": "bucketName",
-  "URL": "https://objects.liquidweb.services"
+  "bucketName": "internal-oxygen-s3",
+  "URL": "https://s3.eu-central-003.backblazeb2.com"
 }

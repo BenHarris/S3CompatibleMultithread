@@ -7,4 +7,4 @@ fi
 
 echo $@ >> /var/log/cpbackuptrans.log
 
-/usr/local/lp/bin/lw-ObjStor4cPanel $@
+/usr/local/lp/bin/S3CompatibleMultithread $@

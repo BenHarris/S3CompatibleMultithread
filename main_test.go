@@ -77,8 +77,8 @@ func TestSetupConnection(t *testing.T) {
 
 	assert.Equal(t, "AccEssKey", connection.Auth.AccessKey, "the Access Key should be the same")
 	assert.Equal(t, "SecRetKey", connection.Auth.SecretKey, "the Secret Key should be the same")
-	assert.Equal(t, "https://objects.liquidweb.services", connection.Region.S3Endpoint, "the URL should be LW's")
-	assert.Equal(t, "liquidweb", connection.Region.Name, "the URL should be LW's")
+	assert.Equal(t, "https://s3.eu-central-003.backblazeb2.com", connection.Region.S3Endpoint, "the URL should be LW's")
+	assert.Equal(t, "backblaze", connection.Region.Name, "the URL should be LW's")
 }
 
 func TestRunningConfig_SetupBucket(t *testing.T) {
@@ -93,9 +93,8 @@ func TestRunningConfig_SetupBucket(t *testing.T) {
 
 	assert.Equal(t, "AccEssKey", testingConfig.bucket.S3.Auth.AccessKey, "the Access Key should be the same")
 	assert.Equal(t, "SecRetKey", testingConfig.bucket.S3.Auth.SecretKey, "the Secret Key should be the same")
-	//assert.Equal(t, "https://BuKKiT.objects.liquidweb.services", bucket.S3.Region.S3Endpoint, "the URL should be LW's")
-	assert.Equal(t, "https://objects.liquidweb.services", testingConfig.bucket.S3.Region.S3Endpoint, "the URL should be LW's")
-	assert.Equal(t, "liquidweb", testingConfig.bucket.S3.Region.Name, "the URL should be LW's")
+	assert.Equal(t, "https://s3.eu-central-003.backblazeb2.com", testingConfig.bucket.S3.Region.S3Endpoint, "the URL should be LW's")
+	assert.Equal(t, "backblaze", testingConfig.bucket.S3.Region.Name, "the URL should be LW's")
 	assert.Equal(t, "bukkit", testingConfig.bucket.Name, "the name of the bucket is not being set correctly")
 }
 
@@ -108,8 +107,8 @@ func TestHiddenConfig(t *testing.T) {
 	assert.Equal(t, testingConfig.AccessKey, testingConfig.bucket.S3.Auth.AccessKey, "the Access Key should be the same")
 	assert.Equal(t, testingConfig.SecretKey, testingConfig.bucket.S3.Auth.SecretKey, "the Secret Key should be the same")
 	assert.Equal(t, testingConfig.bucketName, testingConfig.bucket.Name, "the name of the bucket is not being set correctly")
-	assert.Equal(t, "https://objects.liquidweb.services", testingConfig.bucket.S3.Region.S3Endpoint, "the URL should be LW's")
-	assert.Equal(t, "liquidweb", testingConfig.bucket.S3.Region.Name, "the URL should be LW's")
+	assert.Equal(t, "https://s3.eu-central-003.backblazeb2.com", testingConfig.bucket.S3.Region.S3Endpoint, "the URL should be LW's")
+	assert.Equal(t, "backblaze", testingConfig.bucket.S3.Region.Name, "the URL should be LW's")
 }
 
 func TestRunningConfig_ValidBucket(t *testing.T) {

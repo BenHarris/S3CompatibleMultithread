@@ -1,6 +1,6 @@
 package main
 
-// cPanel backup transport helper for Liquidweb Object Storage
+// cPanel backup transport helper for S3 Compatible Object Storage
 // By Jack Hayhurst
 
 import (
@@ -104,8 +104,8 @@ func (c *runningConfig) SetupBucket() error {
 
 func (c *runningConfig) SetupConnection() (*s3.S3, error) {
 	bucketRegion := aws.Region{
-		Name:              "liquidweb",
-		S3Endpoint:        "https://objects.liquidweb.services",
+		Name:              "backblaze",
+		S3Endpoint:        "https://s3.eu-central-003.backblazeb2.com",
 		S3LowercaseBucket: true,
 	}
 

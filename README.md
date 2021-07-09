@@ -22,9 +22,9 @@ Before installing, you must have a valid Access Key and Secret Key in Object Sto
 1. Go clone this repository container - `https://github.com/jakdept/rpmbuild-docker.git`
 1. Build the github CentOS6 and CentOS7 docker containers.
 1. To build the Cent6 RPM run the following:
-`docker run --rm -v $(pwd)/:/home/rpmbuild/package jakdept/rpmbuild:cent6 rpmbuild -bb SPECS/lw-ObjStor4cPanel.spec`
+`docker run --rm -v $(pwd)/:/home/rpmbuild/package jakdept/rpmbuild:cent6 rpmbuild -bb SPECS/S3CompatibleMultithread.spec`
 1. To build the Cent7 RPM run the following:
-`docker run --rm -v $(pwd)/:/home/rpmbuild/package jakdept/rpmbuild:cent7 rpmbuild -bb SPECS/lw-ObjStor4cPanel.spec`
+`docker run --rm -v $(pwd)/:/home/rpmbuild/package jakdept/rpmbuild:cent7 rpmbuild -bb SPECS/S3CompatibleMultithread.spec`
 1. Get your build binary from the folder `x86_64` and put it on the server.
 1. Install that RPM on the server.
 1. Go to **Backup Configuration** in WHM and edit the **LW Object Storage** destination.

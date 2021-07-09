@@ -1,10 +1,10 @@
-%global lw_path /usr/local/lp/bin
-%global bin_name lw-ObjStor4cPanel
+%global ct_path /usr/local/ct/bin
+%global bin_name S3CompatibleMultithread
 %global git_repo github.com/jakdept/%{bin_name}
-%global goversion 1.8.3
+%global goversion 1.16.5
 %global builddir ${RPM_BUILD_DIR}
 
-Summary: LiquidWeb Object Storage transporter for cPanel
+Summary: S3 Compatible Multithreaded transporter for cPanel
 Name: %{bin_name}
 Version: 1.1.0
 Release: 0
@@ -16,7 +16,7 @@ Requires: bash
 BuildRequires: curl git
 
 %description
-A transporter to connect cPanel's backup system to Liquid Web's Object Storage.
+A transporter to connect cPanel's backup system to S3 Compatible Object Storage utilising multithreadeding.
 
 %prep
 # install go
@@ -52,17 +52,17 @@ export PATH=%{builddir}/usr/local/go/bin:$PATH
 export GOROOT=%{builddir}/usr/local/go
 export GOPATH=%{builddir}/go
 
-mkdir -p %{buildroot}/%{lw_path}
-install -m 0755 ${GOPATH}/bin/%{bin_name} %{buildroot}%{lw_path}
+mkdir -p %{buildroot}/%{ct_path}
+install -m 0755 ${GOPATH}/bin/%{bin_name} %{buildroot}%{ct_path}
 
 %post
-whmapi1 backup_destination_list --output=xml | grep -qF '<name>LW Object Storage</name>'
+whmapi1 backup_destination_list --output=xml | grep -qF '<name>S3 Compatible Multithreaded</name>'
 [[ $? != 0 ]] && whmapi1 backup_destination_add \
-  name=LW\ Object\ Storage \
+  name=S3\ Compatible\ Multithreaded \
   disabled=1 \
   type=Custom \
   upload_system_backup=on \
-  script=%{lw_path}/%{bin_name} \
+  script=%{ct_path}/%{bin_name} \
   host=bucketname \
   path=backup/$(hostname)/ \
   timeout=300 \
@@ -78,7 +78,7 @@ rm -rf ${RPM_BUILD_ROOT}
 
 %files
 %defattr(-,root,root)
-%{lw_path}/%{bin_name}
+%{ct_path}/%{bin_name}
 
 %changelog
 * Wed Aug 23 2017 Jack Hayhurst <jhayhurst@liquidweb.com> - version 1.1.0
