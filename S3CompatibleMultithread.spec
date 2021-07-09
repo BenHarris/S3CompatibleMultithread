@@ -1,6 +1,6 @@
 %global ct_path /usr/local/ct/bin
 %global bin_name S3CompatibleMultithread
-%global git_repo github.com/jakdept/%{bin_name}
+%global git_repo github.com/BenHarris/%{bin_name}
 %global goversion 1.16.5
 %global builddir ${RPM_BUILD_DIR}
 
