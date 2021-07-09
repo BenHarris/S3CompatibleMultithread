@@ -6,7 +6,7 @@
 
 Summary: S3 Compatible Multithreaded transporter for cPanel
 Name: %{bin_name}
-Version: 1.1.0
+Version: 1.2.0
 Release: 0
 License: MIT
 Group: Applications/System
