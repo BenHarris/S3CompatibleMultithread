@@ -64,10 +64,10 @@ whmapi1 backup_destination_list --output=xml | grep -qF '<name>S3 Compatible Mul
   upload_system_backup=on \
   script=%{bin_path}/%{bin_name} \
   host=bucketname \
-  path=backup/$(hostname)/ \
+  path="" \
   timeout=300 \
-  username=username \
-  password=changeme > /dev/null
+  username=keyID \
+  password=applicationKey > /dev/null
 exit 0
 
 # cannot cleanly do preun action - cPanel assigns a random id and does not make

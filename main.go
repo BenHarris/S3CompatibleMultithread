@@ -79,7 +79,7 @@ func getConfig() (runningConfig, error) {
 		return runningConfig{}, fmt.Errorf("invalid command %s", config.Command)
 	}
 	//Pwd := os.Args[2]
-	config.bucketName = os.Args[len(os.Args)-2]
+	config.bucketName = strings.Split(os.Args[len(os.Args)-2], ".")[0]
 	config.AccessKey = os.Args[len(os.Args)-1]
 
 	config.CmdParams = os.Args[3 : len(os.Args)-2]
