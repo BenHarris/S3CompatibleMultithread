@@ -81,6 +81,9 @@ rm -rf ${RPM_BUILD_ROOT}
 %{bin_path}/%{bin_name}
 
 %changelog
+* Fri Jul 09 2021 Ben Harris <ben@localhost.local> - version 1.2.0
+- made generic.
+
 * Wed Aug 23 2017 Jack Hayhurst <jhayhurst@liquidweb.com> - version 1.1.0
 - corrected package summary/long name.
 - corrected lsdir function so that it now lists folders
